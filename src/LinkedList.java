@@ -90,7 +90,7 @@ public class LinkedList {
                 tail = null;
             }
             return temp;
-    }asdasd
+    }
 
     public Node get(int index) {
         Node temp = head;
