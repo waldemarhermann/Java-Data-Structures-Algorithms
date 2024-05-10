@@ -206,5 +206,28 @@ public class LinkedList {
         head = smallerDummy.next;
     }
 
+    public void removeDuplicates() {
+        Node current = head;
+
+        while(current != null && current.next != null) {
+            Node runner = current;
+
+            while(runner.next != null) {
+                if(runner.next.value == current.value) {
+                    runner.next = runner.next.next;
+                    length--;
+                    if(runner.next == null) {
+                        tail = runner;
+                    }
+                } else {
+                    runner = runner.next;
+                }
+            }
+            current = current.next;
+        }
+    }
+
+
+
 }
 

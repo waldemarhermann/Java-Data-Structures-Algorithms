@@ -11,12 +11,14 @@ public class Main {
         list.append(12);
         list.append(7);
         list.append(1);
+        list.append(1);
+        list.append(1);
+
+        list.removeDuplicates();
         list.show();
 
-        System.out.println("\n" + "\n");
 
-        list.partitionList(7);
-        list.show();
+
 
 
 
