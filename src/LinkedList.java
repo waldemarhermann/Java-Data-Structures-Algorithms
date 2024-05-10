@@ -172,5 +172,39 @@ public class LinkedList {
         }
     }
 
+    public boolean hasLoop() {
+        Node slow = head;
+        Node fast = head;
+
+        while(fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) return true;
+        }
+        return false;
+    }
+
+    public void partitionList(int pivot) {
+        Node smallerDummy = new Node(0);
+        Node greaterDummy = new Node(0);
+        Node smaller = smallerDummy;
+        Node greater = greaterDummy;
+        Node current = head;
+
+        while(current != null) {
+            if(current.value < pivot) {
+                smaller.next = current;
+                smaller = current;
+            } else {
+                greater.next = current;
+                greater = current;
+            }
+            current = current.next;
+        }
+        smaller.next = greaterDummy.next;
+        greater.next = null;
+        head = smallerDummy.next;
+    }
+
 }
 
